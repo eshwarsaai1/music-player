@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="icon" type="image/png" href="images/010-04.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lugrasimo&family=Protest+Revolution&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/62536ca87c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="back">
+        <div class="app">
+            <nav>
+                <div class="bars">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="favorites">
+                    <i class="fa-solid fa-heart heart"></i>
+                </div>
+            </nav>
+            <div class="hide">
+            <div class="center">
+                <div class="ctrl backward">
+                    <i class="fa-solid fa-backward"></i>
+                </div>
+                <img class="albumn-img" src="images/shape of you.webp" alt="albumn image">
+                <div class="ctrl forward">
+                    <i class="fa-solid fa-forward"></i>
+                </div>
+                <div class="play">
+                    <img class="play-icon" src="images/play.png" alt="play-icon">
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <h1 class="song-name">Shape of you</h1>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <p>Artist: &nbsp;</p>
+                    <p class="artist">Ed sheeran</p>
+            </div>
+            </div>
+            <audio class="song" controls> <source src="songs/Shape of You.mp3" type="audio/mpeg"></audio>
+            <input type="range" value="0" id="progress">
+            </div>
+        </div>
+        <div class="playlist">
+            <!-- <nav class="goBack">
+                <i class="fa-solid fa-angle-left list-back"></i>
+            </nav> -->
+             <ul class="playul">
+            <!--    <li class="list-item">
+                    <span class="song-number">4</span>
+                    <img src="images/charlieputh.jpeg" alt="albumn-image">
+                    <div class="name">
+                        <h1>Attention</h1>
+                        <p>charlieputh</p>
+                    </div>
+                    <span class="song-duration">2:54</span>
+                </li>-->
+            </ul> 
+        </div>
+        <div class="favlist">
+            <ul class="favul">
+                <!-- <li class="list-item">
+                    <span class="song-number">4</span>
+                    <img class="playlistImage" src="images/charlieputh.jpeg" alt="albumn-image">
+                    <div class="name">
+                        <h1>Attention</h1>
+                        <p>charlieputh</p>
+                    </div>
+                    <span class="song-duration">2:54</span>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="gif">
+        <img src="images/5uwq.gif" alt="music playing gif">
+    </div> -->
+    <script src="script.js"></script>
+</body>
+</html>
