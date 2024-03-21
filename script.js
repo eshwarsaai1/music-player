@@ -1,4 +1,4 @@
-var songs = [
+let songs = [
     {
         num:1,
         song: "songs/shape of you.mp3",
@@ -73,29 +73,29 @@ var songs = [
     }
 ]
 
-var index=0;
-var flag=1;
+let index=0;
+let flag=1;
 
 
-var bars=document.querySelector(".bars");
-var listback=document.querySelector(".fa-bars");
-var playlist=document.querySelector(".playlist");
-var next=document.querySelector(".forward");
-var prev=document.querySelector(".backward");
-var albumnImg=document.querySelector(".albumn-img");
-var song_name=document.querySelector(".song-name");
-var artist=document.querySelector(".artist");
+let bars=document.querySelector(".bars");
+let listback=document.querySelector(".fa-bars");
+let playlist=document.querySelector(".playlist");
+let next=document.querySelector(".forward");
+let prev=document.querySelector(".backward");
+let albumnImg=document.querySelector(".albumn-img");
+let song_name=document.querySelector(".song-name");
+let artist=document.querySelector(".artist");
 
-var favorites=document.querySelector(".favorites");
-var heart=document.querySelector(".heart");
-var favlist=document.querySelector(".favlist");
-var favul=document.querySelector(".favul");
+let favorites=document.querySelector(".favorites");
+let heart=document.querySelector(".heart");
+let favlist=document.querySelector(".favlist");
+let favul=document.querySelector(".favul");
 
-var app=document.querySelector(".app");
-var song=document.querySelector(".song");
-var progress=document.getElementById("progress");
-var plyBtn=document.querySelector(".play-icon");
-var albumn=document.querySelector(".play");
+let app=document.querySelector(".app");
+let song=document.querySelector(".song");
+let progress=document.getElementById("progress");
+let plyBtn=document.querySelector(".play-icon");
+let albumn=document.querySelector(".play");
 
 next.addEventListener("click", playNext);
 prev.addEventListener("click", playprev);
@@ -120,7 +120,7 @@ function openFavorites(){
 };
 
 document.addEventListener("keydown", (e) => {
-    var isSongplaying = true;
+    let isSongplaying = true;
     if(song.paused){
         isSongplaying = false;
     }
@@ -147,34 +147,34 @@ app.addEventListener("wheel", (e) => {
     song.volume = Math.max(0,Math.min(song.volume + (e.deltaY * -0.0009),1));
 })
 
-var ul=document.querySelector(".playul");
+let ul=document.querySelector(".playul");
 function createPlaylist(){
     songs.forEach((arrayElement) => {
-        var li=document.createElement("li");
+        let li=document.createElement("li");
         li.classList.add("list-item", "playlist-item")
-        var num=document.createElement("span");
+        let num=document.createElement("span");
         num.classList.add("song-number");
         num.innerHTML= arrayElement.num;
         li.appendChild(num);
-        var img=document.createElement("img");
+        let img=document.createElement("img");
         img.alt="albumn image";
         img.src=arrayElement.img;
         img.classList.add("playlistImage")
         li.appendChild(img);
-        var div=document.createElement("div");
+        let div=document.createElement("div");
         div.classList.add("name");
-        var heading=document.createElement("h1");
+        let heading=document.createElement("h1");
         heading.innerHTML=arrayElement.name;
-        var artistEle=document.createElement("p");
+        let artistEle=document.createElement("p");
         artistEle.innerHTML=arrayElement.artist;
         div.appendChild(heading);
         div.appendChild(artistEle);
         li.appendChild(div);
-        var duration=document.createElement("span");
+        let duration=document.createElement("span");
         duration.classList.add("song-duration");
         duration.innerHTML=arrayElement.duration;
         li.appendChild(duration);
-        var favIcon=document.createElement("i");
+        let favIcon=document.createElement("i");
         favIcon.classList.add("fa-regular", "fa-heart", "favIcon");
         li.appendChild(favIcon);
         ul.appendChild(li);
@@ -211,19 +211,19 @@ function createPlaylist(){
 }
 
 songs.forEach((ele) => {
-    var media=document.createElement("audio");
+    let media=document.createElement("audio");
     media.src = ele.song;
     media.load();
     media.addEventListener("loadedmetadata", () => {
-        var time = parseInt(media.duration);
-        var m= Math.floor(time/60);
-        var s= time - (m*60)
+        let time = parseInt(media.duration);
+        let m= Math.floor(time/60);
+        let s= time - (m*60)
         ele.duration = m+":"+s;
     })
 })
 createPlaylist();
 
-var hide=document.querySelector(".hide");
+let hide=document.querySelector(".hide");
 
 function openPlaylist(){
     listback.classList.toggle("fa-angle-left");
@@ -232,13 +232,13 @@ function openPlaylist(){
     favorites.classList.toggle("hidden");
 }
 
-var addToFavs = (li) => {
-    var num=li.children[0].innerHTML;
+let addToFavs = (li) => {
+    let num=li.children[0].innerHTML;
     index=num-1;
     favul.appendChild(li);
     li.children[(li.children.length)-1].classList.add("fa-solid");
-    var lis=favul.querySelectorAll("li");
-    var c=1;
+    let lis=favul.querySelectorAll("li");
+    let c=1;
     lis.forEach((li) =>{
         li.children[0].innerHTML=c;
         c++;
@@ -259,7 +259,7 @@ var addToFavs = (li) => {
     })
     console.log(songs[index]);
     li.children[(li.children.length)-1].addEventListener("click", () => {
-        var playlis=playlist.querySelectorAll(".playlist-item");
+        let playlis=playlist.querySelectorAll(".playlist-item");
         playlis.forEach((playli) => {
             if(playli.children[2].innerHTML.trim() === li.children[2].innerHTML.trim()){
                 playli.children[(li.children.length)-1].classList.remove("fa-solid");
@@ -270,10 +270,10 @@ var addToFavs = (li) => {
     })
 }
 
-var removeFromFavs =(removeli) => {
-    var favlis=favul.querySelectorAll("li");
-    var c=1;
-    var f=0;
+let removeFromFavs =(removeli) => {
+    let favlis=favul.querySelectorAll("li");
+    let c=1;
+    let f=0;
     console.log(songs[index]);
     favlis.forEach((li) =>{
         if(li.children[2].innerHTML.trim() === removeli.children[2].innerHTML.trim()){
@@ -289,7 +289,7 @@ var removeFromFavs =(removeli) => {
 }
 
 function playNext(){
-    var isSongplaying = true;
+    let isSongplaying = true;
     if(song.paused){
         isSongplaying = false;
     }
@@ -309,7 +309,7 @@ function playNext(){
 }
 
 function playprev(){
-    var isSongplaying = true;
+    let isSongplaying = true;
     if(song.paused){
         isSongplaying = false;
     }
@@ -375,7 +375,7 @@ song.addEventListener("play",() => {
 });
 
 progress.onchange = function(){
-    var isSongplaying = true;
+    let isSongplaying = true;
     if(song.paused){
         isSongplaying = false;
     }
