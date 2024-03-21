@@ -70,7 +70,17 @@ let songs = [
         artist: " Rema, Selena",
         duration: "2:54",
         fav: false
+    },
+    {
+        num:9,
+        song: "songs/see you again.mp3",
+        img: "images/see you again.png",
+        name: "see you again",
+        artist: "charlie puth, wiz khalifa",
+        duration: "2:54",
+        fav: false
     }
+    
 ]
 
 let index=0;
@@ -257,7 +267,6 @@ let addToFavs = (li) => {
             bars.classList.toggle("hidden");
             saveData();
     })
-    console.log(songs[index]);
     li.children[(li.children.length)-1].addEventListener("click", () => {
         let playlis=playlist.querySelectorAll(".playlist-item");
         playlis.forEach((playli) => {
@@ -266,6 +275,7 @@ let addToFavs = (li) => {
             }
         })
         songs[index].fav = false;
+        // favul.removeChild(li);
         removeFromFavs(li);
     })
 }
@@ -274,7 +284,6 @@ let removeFromFavs =(removeli) => {
     let favlis=favul.querySelectorAll("li");
     let c=1;
     let f=0;
-    console.log(songs[index]);
     favlis.forEach((li) =>{
         if(li.children[2].innerHTML.trim() === removeli.children[2].innerHTML.trim()){
             favul.removeChild(li);
