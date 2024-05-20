@@ -84,7 +84,6 @@ let songs = [
 ]
 
 let index=0;
-let flag=1;
 
 
 let bars=document.querySelector(".bars");
@@ -219,7 +218,7 @@ function createPlaylist(){
     })
     playlist.appendChild(ul);
 }
-
+createPlaylist();
 songs.forEach((ele) => {
     let media=document.createElement("audio");
     media.src = ele.song;
@@ -231,7 +230,7 @@ songs.forEach((ele) => {
         ele.duration = m+":"+s;
     })
 })
-createPlaylist();
+
 
 let hide=document.querySelector(".hide");
 
@@ -244,7 +243,7 @@ function openPlaylist(){
 
 let addToFavs = (li) => {
     let num=li.children[0].innerHTML;
-    index=num-1;
+    let favIndex=num-1;
     favul.appendChild(li);
     li.children[(li.children.length)-1].classList.add("fa-solid");
     let lis=favul.querySelectorAll("li");
@@ -256,15 +255,16 @@ let addToFavs = (li) => {
     
     li.children[2].addEventListener(("click"), () => {
         if(!song.paused) song.pause();
-            song.src=songs[index].song;
-            albumnImg.src=songs[index].img;
-            song_name.innerHTML=songs[index].name;
-            artist.innerHTML=songs[index].artist;
+            song.src=songs[favIndex].song;
+            albumnImg.src=songs[favIndex].img;
+            song_name.innerHTML=songs[favIndex].name;
+            artist.innerHTML=songs[favIndex].artist;
             playpause();
             heart.classList.toggle("fa-angle-left");
             favlist.classList.toggle("visible");
             hide.classList.toggle("hidden");
             bars.classList.toggle("hidden");
+            index=favIndex;
             saveData();
     })
     li.children[(li.children.length)-1].addEventListener("click", () => {
@@ -274,7 +274,7 @@ let addToFavs = (li) => {
                 playli.children[(li.children.length)-1].classList.remove("fa-solid");
             }
         })
-        songs[index].fav = false;
+        songs[favIndex].fav = false;
         // favul.removeChild(li);
         removeFromFavs(li);
     })
@@ -361,8 +361,7 @@ function playpause(){
 function resume(){
     plyBtn.src="images/pause.png";
     plyBtn.style.width="50px";
-    plyBtn.style.height="60px";        
-    flag=0;
+    plyBtn.style.height="60px"; 
 }
 
 song.addEventListener("play",() => {
